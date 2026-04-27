@@ -1,0 +1,16 @@
+services:
+  api:
+    build: ./backend
+    container_name: dizinapp-api
+    ports:
+      - "8000:8000"
+    environment:
+      DIZINAPP_DEV_MODE: "true"
+      DIZINAPP_JWT_SECRET: "dev-secret-change-me"
+      DIZINAPP_CORS_ORIGINS: '["http://localhost:3000"]'
+    volumes:
+      - dizinapp_data:/data
+    restart: unless-stopped
+
+volumes:
+  dizinapp_data:
