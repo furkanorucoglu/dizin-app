@@ -1,13 +1,23 @@
 .DS_Store
+
+# env
 .env
 .env.local
+**/.env
+**/.env.local
 
+# frontend
 frontend/node_modules
 frontend/.next
 frontend/out
 
+# backend
 backend/.venv
 backend/__pycache__
 backend/**/*.pyc
 backend/storage
 backend/*.db
+backend/dizinapp.db
+
+# misc
+*.zip
