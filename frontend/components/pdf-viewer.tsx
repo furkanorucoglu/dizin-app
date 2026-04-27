@@ -118,7 +118,7 @@ async function errorText(res: Response): Promise<string> {
       if (typeof json.detail === "string") return json.detail;
       if (Array.isArray(json.detail)) {
         return json.detail
-          .map((item) => item?.msg || JSON.stringify(item))
+          .map((item: any) => item?.msg || JSON.stringify(item))
           .join("; ");
       }
       if (typeof json.error === "string") return json.error;

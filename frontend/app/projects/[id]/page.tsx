@@ -187,7 +187,7 @@ export default function ProjectDetailPage() {
                     <PencilRuler className="h-4 w-4" /> İncele
                   </Button>
                 </Link>
-                <PdfReportDownloadButton projectId={projectId} title={project.title} />
+                <PdfReportDownloadButton projectId={projectId} />
               </>
             )}
             {(project.status === "error" || project.status === "ready") && (
@@ -296,9 +296,9 @@ export default function ProjectDetailPage() {
                   {entries.items.map((entry) => (
                     <tr key={entry.id} className="border-b border-slate-100 transition hover:bg-slate-50/80 last:border-0">
                       <td className="px-4 py-3 font-semibold text-slate-950">{entry.headword}</td>
-                      <td className="px-4 py-3 text-slate-500">{entry.original_pages.map((p) => p.raw ?? `${p.start}`).join(", ")}</td>
-                      <td className="px-4 py-3 text-slate-700">{entry.translated_pages.map((p) => p.raw ?? `${p.start}`).join(", ")}</td>
-                      <td className="px-4 py-3"><ConfidenceBadge value={entry.confidence} /></td>
+                      <td className="px-4 py-3 text-slate-500">{(entry.original_pages ?? []).map((p) => p.raw ?? `${p.start}`).join(", ")}</td>
+                      <td className="px-4 py-3 text-slate-700">{(entry.translated_pages ?? []).map((p) => p.raw ?? `${p.start}`).join(", ")}</td>
+                      <td className="px-4 py-3"><ConfidenceBadge value={(entry.confidence ?? "medium") as "high" | "medium" | "low"} /></td>
                     </tr>
                   ))}
                 </tbody>

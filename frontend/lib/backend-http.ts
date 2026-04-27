@@ -117,7 +117,7 @@ export async function safeErrorText(res: Response): Promise<string> {
       const json = JSON.parse(text);
       if (typeof json.detail === "string") return json.detail;
       if (Array.isArray(json.detail)) {
-        return json.detail.map((item) => item.msg || JSON.stringify(item)).join("; ");
+        return json.detail.map((item: any) => item.msg || JSON.stringify(item)).join("; ");
       }
       if (typeof json.error === "string") return json.error;
       if (typeof json.message === "string") return json.message;

@@ -130,8 +130,6 @@ export default function ReviewPage() {
           )}
           <PdfReportDownloadButton
             projectId={projectId}
-            title={projectQuery.data.title}
-            compact
           />
           <Button
             variant="outline"
@@ -162,7 +160,7 @@ export default function ReviewPage() {
             </div>
             <div className="min-h-0 flex-1 overflow-hidden">
               <EntryList
-                entries={entries}
+                entries={entries as any}
                 total={total}
                 selectedId={selectedEntry?.id ?? null}
                 onSelect={handleSelect as any}
