@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+pydantic-settings
+PyJWT
+python-docx
+reportlab
+Pillow
+PyMuPDF
